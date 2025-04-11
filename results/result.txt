@@ -1,0 +1,36 @@
+=========================================
+Scan Results for example.com - Nmap
+=========================================
+Starting Nmap 7.93 ( https://nmap.org ) at 2025-04-11 10:21 UTC
+Nmap scan report for example.com (147.91.1.123)
+Host is up (0.038s latency).
+Not shown: 997 filtered ports
+PORT    STATE  SERVICE
+80/tcp  open   http
+443/tcp open   https
+...
+
+=========================================
+Scan Results for example.com - SSLScan
+=========================================
+Version: 1.11.11-static
+Connected to 147.91.1.123
+Testing SSL server example.com on port 443 using SNI name example.com
+
+...
+
+=========================================
+Scan Results for example.com - Sublist3r
+=========================================
+[+] Enumerating subdomains now for example.com
+[-] Searching in Baidu..
+[-] Searching in Bing..
+...
+sub.example.com
+dev.example.com
+...
+
+=========================================
+Scan Completed: Fri Apr 11 10:26:34 UTC 2025
+=========================================
+Scan completed. Results saved to results/result.txt

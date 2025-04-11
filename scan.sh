@@ -21,11 +21,14 @@ mkdir -p results
 
 # Function to check if a tool is installed
 check_tool() {
-    if ! command -v "$1" &> /dev/null; then
+    if ! command -v "$1" >/dev/null 2>&1; then
         echo "Error: $1 is not installed. Please install it to proceed."
         exit 1
     fi
 }
+
+# Check for tee (required for output handling)
+check_tool "tee"
 
 # Function to append a header to the output file
 append_header() {
@@ -96,6 +99,7 @@ func_sublist3r() {
     sublist3r -d "$DOMAIN" | tee -a "$OUTPUT_FILE"
     echo "" >> "$OUTPUT_FILE"
 }
+
 
 # Function to run theHarvester
 func_theharvester() {
