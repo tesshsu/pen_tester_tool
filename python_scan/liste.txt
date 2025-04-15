@@ -1,0 +1,8 @@
+admin
+login
+dashboard
+api
+feedback
+uploads
+profile
+settings

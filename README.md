@@ -41,3 +41,13 @@ Ensure the following tools are installed on your system:
 - $ chmod +x scan.sh
 - $ /scan.sh example.com
 - For payload sqli copy the query and attach like any path query like 'GET /rest/products/search?q=')) union select 1,2,3,4,5,6,7,8,name from sqlite_master where type='table'-- HTTP/1.1'
+
+### Usage for basic python scan web OWAP
+python_scan/
+├── scan.py
+├── liste.txt
+└── .env
+
+- $ pip install requests python-dotenv
+- edit .env file which site url you want to scan
+- $ python python_scan/scan.py
