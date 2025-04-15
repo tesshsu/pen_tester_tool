@@ -92,6 +92,12 @@ func_amass() {
 }
 
 # Function to run Sublist3r
+/*************  ✨ Windsurf Command ⭐  *************/
+    # Runs Sublist3r to enumerate subdomains for the specified domain.
+    # Checks if Sublist3r is installed, runs the tool, and appends the results
+    # to the output file with a header.
+
+/*******  64bb96c3-34ce-4a04-8c54-8b2b9c9350c9  *******/
 func_sublist3r() {
     check_tool "sublist3r"
     echo "Running Sublist3r on $DOMAIN..."

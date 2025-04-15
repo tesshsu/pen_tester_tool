@@ -39,7 +39,7 @@ Ensure the following tools are installed on your system:
 
 ### Usage
 - $ chmod +x scan.sh
-- $ /scan.sh example.com
+- $ ./scan.sh example.com
 - For payload sqli copy the query and attach like any path query like 'GET /rest/products/search?q=')) union select 1,2,3,4,5,6,7,8,name from sqlite_master where type='table'-- HTTP/1.1'
 
 ### Usage for basic python scan web TOP OWASP
@@ -50,4 +50,7 @@ python_scan/
 
 - $ pip install requests python-dotenv
 - edit .env file which site url you want to scan
-- $ python python_scan/scan.py
+- $ python3 scan.py
+
+## PS
+- If you need to copy code in windows system from unix Linux sytem need to change system from LF to CRLF
