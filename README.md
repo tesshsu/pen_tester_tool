@@ -54,3 +54,40 @@ python_scan/
 
 ## PS
 - If you need to copy code in windows system from unix Linux sytem need to change system from LF to CRLF
+
+
+
+# 🔐 Rapport de Pentest – Fiches de Vulnérabilités
+
+## 📁 Exemple de Fiche de Vulnérabilité
+
+---
+
+### ✅ 1. Type de faille
+- **Nom** : XSS réfléchi
+- **Description** :
+  Une faille XSS de type « Réfléchi » a été découverte dans le champ de recherche du site web. Cela permet à un attaquant d’injecter du code JavaScript dans les pages, ce qui peut notamment mener à du vol de cookies dans certains cas.  
+  La portée de l'attaque est relativement limitée par la nature même de la vulnérabilité.
+
+---
+
+### 🧨 2. Score CVSS
+- **Score CVSS** : 6.9
+- **Vecteur CVSS** : `AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N/E:P/RL:O/RC:C`
+
+---
+
+### 🧩 3. Identifiants
+- **CVE concernée** : _non assignée_
+- **CWE principale** : `CWE-79` – Improper Neutralization of Input During Web Page Generation
+- **CWE complémentaire** : `CWE-912` – Hidden Functionality (si applicable)
+
+---
+
+### 🧪 4. Reproduction de l'exploit
+- **Lien de test** :  
+  `http://ip.to-21-112-5/search.php?query=%3Cscript%3Ealert(1)%3C/script%3E`
+
+- **Payload utilisé** :
+  ```html
+  <script>alert('XSS')</script>
