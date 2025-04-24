@@ -1,0 +1,68 @@
+Rapport de Pentest – Généré automatiquement
+IP Cible: 10.41.101.5
+Date: 2025-04-24 11:50:58
+Durée estimée: Automatisée
+Méthode: Boîte noire
+
+PHASE: SCAN + ENUMÉRATION
+--------------------------
+
+Résultats Nmap:
+ - Port 22 (ssh) → Version: OpenSSH 7.6p1 Ubuntu 4ubuntu0.7 (Ubuntu Linux; protocol 2.0)
+ - Port 80 (http) → Version: Apache httpd 2.4.29 ((Ubuntu))
+ - Port 139 (netbios-ssn) → Version: Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+ - Port 445 (netbios-ssn) → Version: Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+ - Port 10000 (http) → Version: MiniServ 1.890 (Webmin httpd)
+
+PHASE: VULNÉRABILITÉS POSSIBLES
+--------------------------------
+Port 22 (SSH)
+  ➤ Version détectée: OpenSSH 7.6p1 Ubuntu 4ubuntu0.7 (Ubuntu Linux; protocol 2.0)
+  ➤ Vulnérabilités possibles:
+    - Weak passwords
+    - Outdated SSHd
+  ➤ Outils recommandés:
+    - nmap (✔ installé)
+    - hydra (✔ installé)
+    - searchsploit (✔ installé)
+  ➤ Aucun CVE trouvé pour cette version. Continuation du scan...
+
+Port 80 (HTTP)
+  ➤ Version détectée: Apache httpd 2.4.29 ((Ubuntu))
+  ➤ Vulnérabilités possibles:
+    - XSS, SQLi, RCE
+    - Outdated Apache/nginx
+  ➤ Outils recommandés:
+    - nmap (✔ installé)
+    - nikto (✔ installé)
+    - burpsuite (✘ non trouvé)
+  ➤ Aucun CVE trouvé pour cette version. Continuation du scan...
+
+Port 139 (NetBIOS)
+  ➤ Version détectée: Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+  ➤ Vulnérabilités possibles:
+    - Enumerate shares
+    - SMBv1 enabled
+  ➤ Outils recommandés:
+    - nmap (✔ installé)
+    - smbclient (✔ installé)
+  ➤ Aucun CVE trouvé pour cette version. Continuation du scan...
+
+Port 445 (SMB)
+  ➤ Version détectée: Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+  ➤ Vulnérabilités possibles:
+    - EternalBlue
+    - Unsecured shares
+  ➤ Outils recommandés:
+    - smbmap (✔ installé)
+    - nmap (✔ installé)
+    - metasploit (✘ non trouvé)
+  ➤ Aucun CVE trouvé pour cette version. Continuation du scan...
+
+PHASE: POST-SCAN (si outils disponibles)
+----------------------------------------
+[+] Lancement rapide de Nikto sur port 80...
+✘ dirsearch non installé. Étape ignorée.
+✘ gobuster non installé. Étape ignorée.
+
+FIN DU RAPPORT – Utilisez ces résultats pour exploiter manuellement avec Burp Suite, Metasploit, etc.
