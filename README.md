@@ -91,3 +91,7 @@ python_scan/
 - **Payload utilisé** :
   ```html
   <script>alert('XSS')</script>
+
+## USAGE for quickepentest.py
+- python3 quickpentest.py <IP> --test-smb
+- python3 quickpentest.py <IP>
