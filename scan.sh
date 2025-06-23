@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Check if a domain name is provided as an argument
-if [ $# -ne 1 ]; then
+if [ "$#" -ne 1 ]; then
     echo "Usage: $0 <domain>"
     exit 1
 fi
@@ -10,9 +10,9 @@ fi
 DOMAIN="$1"
 OUTPUT_FILE="results/result.txt"
 
-# Validate domain format (basic check)
-if ! [[ "$DOMAIN" =~ ^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$ ]]; then
-    echo "Error: Invalid domain format. Please provide a valid domain (e.g., example.com)."
+# Validate domain format (domain or IPv4)
+if ! [[ "$DOMAIN" =~ ^([a-zA-Z0-9.-]+\.[a-zA-Z]{2,}|[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)$ ]]; then
+    echo "Error: Invalid domain format. Please provide a valid domain (e.g., example.com) or IPv4 address."
     exit 1
 fi
 
